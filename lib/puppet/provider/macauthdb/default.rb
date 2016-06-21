@@ -7,6 +7,7 @@ Puppet::Type.type(:macauthdb).provide(:default) do
   desc "Manage Mac OS X authorization database rules and rights."
 
   defaultfor :operatingsystem  => :darwin
+  confine :osfamily => 'Darwin'
   commands   :security         => '/usr/bin/security'
 
   mk_resource_methods
@@ -32,7 +33,7 @@ Puppet::Type.type(:macauthdb).provide(:default) do
   CLASSES = ['user', 'rule', 'evaluate-mechanisms', 'allow', 'deny']
 
   TYPES = ['right', 'rule']
-  confine :osfamily => 'Darwin'
+
   class << self
 
     def instances
