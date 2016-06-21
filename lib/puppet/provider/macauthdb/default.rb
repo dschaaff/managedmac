@@ -5,7 +5,7 @@ require 'cfpropertylist'
 Puppet::Type.type(:macauthdb).provide(:default) do
 
   desc "Manage Mac OS X authorization database rules and rights."
-
+  confine :operatingsystem => :darwin
   defaultfor :operatingsystem  => :darwin
   commands   :security         => '/usr/bin/security'
   confine    :operatingsystem  => :darwin
