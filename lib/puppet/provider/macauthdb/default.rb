@@ -7,7 +7,7 @@ Puppet::Type.type(:macauthdb).provide(:default) do
   desc "Manage Mac OS X authorization database rules and rights."
 
   defaultfor :operatingsystem  => :darwin
-  confine :osfamily => 'Darwin'
+  confine :osfamily => :darwin
   commands   :security         => '/usr/bin/security'
 
   mk_resource_methods
