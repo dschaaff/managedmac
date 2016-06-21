@@ -1,6 +1,6 @@
 require 'date'
 require 'sqlite3' if Puppet.features.sqlite?
-require 'cfpropertylist'
+require 'cfpropertylist' if Puppet.features.cfpropertylist?
 
 Puppet::Type.type(:macauthdb).provide(:default) do
 
