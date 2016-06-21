@@ -1,6 +1,6 @@
 require 'date'
-require 'sqlite3' if Puppet.features.sqlite?
-require 'cfpropertylist' if Puppet.features.cfpropertylist?
+require 'sqlite3'
+require 'cfpropertylist'
 
 Puppet::Type.type(:macauthdb).provide(:default) do
 
@@ -32,7 +32,7 @@ Puppet::Type.type(:macauthdb).provide(:default) do
   CLASSES = ['user', 'rule', 'evaluate-mechanisms', 'allow', 'deny']
 
   TYPES = ['right', 'rule']
-
+  confine :osfamily => 'Darwin'
   class << self
 
     def instances
